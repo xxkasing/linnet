@@ -52,29 +52,31 @@ pip install -r requirements.txt
 
 ```bash
 # 在仓库根目录执行
-PYTHONPATH=. python3 -m netmusic
+PYTHONPATH=. python3 -m linnet
 ```
 
 无显示器环境可用 Qt 的 offscreen 后端做基础冒烟测试：
 
 ```bash
-QT_QPA_PLATFORM=offscreen PYTHONPATH=. python3 -m netmusic
+QT_QPA_PLATFORM=offscreen PYTHONPATH=. python3 -m linnet
 ```
 
 ### 安装到应用菜单（可选）
 
 ```bash
-sudo install -d /opt/netmusic
-sudo cp -r netmusic assets /opt/netmusic/
+sudo install -d /opt/linnet
+sudo cp -r linnet assets /opt/linnet/
+sudo cp packaging/linnet /usr/local/bin/linnet
+sudo chmod 755 /usr/local/bin/linnet
 sudo cp packaging/linnet.desktop /usr/share/applications/
 sudo cp assets/linnet.svg /usr/share/icons/hicolor/scalable/apps/
 ```
 
-桌面入口默认从 `/opt/netmusic` 启动；如果安装目录不同，请同步修改 `packaging/linnet.desktop` 的 `Path` 和 `Icon`。
+桌面入口默认从 `/opt/linnet` 启动；如果安装目录不同，请同步修改 `packaging/linnet.desktop` 的 `Path` 和 `Icon`。
 
 ## 登录与数据
 
-- 登录信息只保存在本机 `~/.config/netmusic/cookies.json`。
+- 登录信息只保存在本机 `~/.config/linnet/cookies.json`。
 - 不要把自己的 `cookies.json` 提交到 Git 或发给他人；`.gitignore` 已排除该文件和日志。
 - 扫码、短信验证码和手机号密码登录受平台风控影响，可能失败；当前最可靠的方式是导入自己浏览器的 Cookie。Cookie 只用于本机请求，不会上传到第三方服务器。
 - 只播放当前账号本身有权限播放的内容。
@@ -98,13 +100,13 @@ sudo apt install fonts-noto-cjk
 ```
 
 **接口失效**
-程序会自动尝试备用方案，详细日志在 `~/.config/netmusic/netmusic.log`。接口属于第三方非官方接口，可能随平台调整而变化。
+程序会自动尝试备用方案，详细日志在 `~/.config/linnet/linnet.log`。接口属于第三方非官方接口，可能随平台调整而变化。
 
 ## 项目结构
 
 ```text
-netmusic/
-├── netmusic/            # Python 包，内部包名保持 netmusic
+linnet/
+├── linnet/            # Python 包
 │   ├── api.py           # 非官方接口适配与自动切换
 │   ├── app.py           # 主窗口
 │   ├── theme.py         # 深浅色 QSS
