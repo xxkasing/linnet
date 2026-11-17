@@ -2,8 +2,8 @@
 Type=Application
 Name=Linnet
 Comment=Third-party Linux music client
-Exec=/usr/bin/python3 -m netmusic
-Path=/opt/netmusic
+Exec=/usr/local/bin/linnet
+Path=/opt/linnet
 Icon=linnet
 Terminal=false
 Categories=AudioVideo;Audio;Music;Player;

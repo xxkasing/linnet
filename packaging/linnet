@@ -1,0 +1,4 @@
+#!/bin/sh
+export PYTHONPATH=/opt/linnet
+export QT_MEDIA_BACKEND=ffmpeg
+exec /usr/bin/python3 -m linnet "$@"
