@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Linnet
+Comment=Third-party Linux music client
+Exec=/usr/bin/python3 -m netmusic
+Path=/opt/netmusic
+Icon=linnet
+Terminal=false
+Categories=AudioVideo;Audio;Music;Player;
+Keywords=music;linnet;audio;player;
+StartupNotify=false
+StartupWMClass=linnet
